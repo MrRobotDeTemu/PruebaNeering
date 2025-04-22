@@ -1,12 +1,13 @@
 <?php
 
-Route::get('/users', function () {
-    return "users list";
-});
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-Route::post('/users', function () {
-    return "creando users";
-});
+use App\Http\Controllers\Api\userController;
+
+Route::get('/users', [userController::class, 'index']);
+
+Route::post('/users',  [userController::class, 'store']);
 
 Route::put('/users/{id}', function () {
     return "editando users";
